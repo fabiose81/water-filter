@@ -1,0 +1,137 @@
+<div class="w-full">
+   <div class="relative right-0">
+      <ul class="relative flex flex-wrap px-1.5 py-1.5 list-none rounded-md bg-slate-100" role="list">
+         <li class="z-30 flex-auto text-center">
+            <a (click)="setActive('start')"
+            [class.text-slate-700]="activeTab() === 'start'"
+            [class.bg-white]="activeTab() === 'start'"
+            [class.text-slate-600]="activeTab() !== 'start'"
+            class="z-30 flex items-center justify-center w-full px-0 py-2 text-sm mb-0 transition-all ease-in-out border-0 rounded-md cursor-pointer">
+            water filter process
+            </a>
+         </li>
+         <li class="z-30 flex-auto text-center">
+            <a (click)="setActive('list')"
+            [class.text-slate-700]="activeTab() === 'list'"
+            [class.bg-white]="activeTab() === 'list'"
+            [class.text-slate-600]="activeTab() !== 'list'"
+            class="z-30 flex items-center justify-center w-full px-0 py-2 mb-0 text-sm transition-all ease-in-out border-0 rounded-lg cursor-pointer">
+            list process finished
+            </a>
+         </li>
+      </ul>
+      
+      <br/>
+
+      @if (alertStatus.visible) {
+         
+         <div role="alert" class="mb-4 relative flex w-full p-3 text-sm text-white rounded-md {{ alertStatus.class }}">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="h-5 w-5 mr-2">
+               <path stroke-linecap="round" stroke-linejoin="round" d="M11.25 11.25l.041-.02a.75.75 0 011.063.852l-.708 2.836a.75.75 0 001.063.853l.041-.021M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-9-3.75h.008v.008H12V8.25z"></path>
+            </svg>
+            {{ alertStatus.label }}
+         </div>
+      } 
+      <div class="p-5 min-h-[130px] relative">
+         @if (isLoading()) {
+            <svg class="w-8 h-8 text-gray-300 animate-spin" viewBox="0 0 64 64" fill="none"
+               xmlns="http://www.w3.org/2000/svg" width="24" height="24">
+               <path
+                  d="M32 3C35.8083 3 39.5794 3.75011 43.0978 5.20749C46.6163 6.66488 49.8132 8.80101 52.5061 11.4939C55.199 14.1868 57.3351 17.3837 58.7925 20.9022C60.2499 24.4206 61 28.1917 61 32C61 35.8083 60.2499 39.5794 58.7925 43.0978C57.3351 46.6163 55.199 49.8132 52.5061 52.5061C49.8132 55.199 46.6163 57.3351 43.0978 58.7925C39.5794 60.2499 35.8083 61 32 61C28.1917 61 24.4206 60.2499 20.9022 58.7925C17.3837 57.3351 14.1868 55.199 11.4939 52.5061C8.801 49.8132 6.66487 46.6163 5.20749 43.0978C3.7501 39.5794 3 35.8083 3 32C3 28.1917 3.75011 24.4206 5.2075 20.9022C6.66489 17.3837 8.80101 14.1868 11.4939 11.4939C14.1868 8.80099 17.3838 6.66487 20.9022 5.20749C24.4206 3.7501 28.1917 3 32 3L32 3Z"
+                  stroke="currentColor" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"></path>
+               <path
+                  d="M32 3C36.5778 3 41.0906 4.08374 45.1692 6.16256C49.2477 8.24138 52.7762 11.2562 55.466 14.9605C58.1558 18.6647 59.9304 22.9531 60.6448 27.4748C61.3591 31.9965 60.9928 36.6232 59.5759 40.9762"
+                  stroke="currentColor" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" class="text-gray-900">
+               </path>
+            </svg>
+         }
+         
+         @if (activeTab() === 'start') {     
+            @if (!isFilteringProcess()) {
+               <button (click) = "start()"  class="rounded-md border border-slate-300 py-2 px-4 text-center text-sm transition-all shadow-sm hover:shadow-lg text-slate-600 
+                  hover:text-white hover:bg-slate-800 hover:border-slate-800 focus:text-white focus:bg-slate-800 focus:border-slate-800 active:border-slate-800 
+                  active:text-white active:bg-slate-800 disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none" type="button">
+               Start
+               </button> 
+            }   
+
+            <br/>
+
+            @if (water.id) { 
+               <div class="w-full">
+                  <div class="flex items-center justify-between gap-4 mb-2">
+                     <h6
+                        class="block font-light text-base antialiased leading-snug tracking-normal text-blue-gray-400">
+                        Completed
+                     </h6>
+                     <h6 class="block font-light text-base antialiased leading-snug tracking-normal text-blue-gray-400">
+                        {{ progress }}%
+                     </h6>
+                  </div>
+                  <div class="flex-start flex h-2.5 w-full overflow-hidden rounded-full bg-blue-gray-80 font-sans text-xs font-medium">
+                     <div class="flex items-center justify-center h-full overflow-hidden text-white break-all bg-gray-400 rounded-full" [style.width.%]="progress"></div>
+                  </div>
+               </div>
+
+               <br/>
+               
+               <div class="transition-all duration-300 overflow-hidden ease-in-out px-3 overflow-y-auto" [style.maxHeight]="'495px'">
+                  <ul class="flex flex-col w-full">
+                     @for (status of water.status; track $index) {
+                        <li class="relative flex flex-col gap-2 h-28">
+                           <div class="relative flex items-center gap-4 py-3 pl-4 pr-8 bg-white  shadow-lg rounded-xl border-blue-gray-50 shadow-blue-gray-900/5">
+                              <span class="relative z-[2] w-max flex-shrink-0 overflow-hidden rounded-full p-3 text-gray-900">                                   
+                                 @switch (status.step) {
+                                    @case ("COAGULATION") {
+                                    <img src="coagulation.svg" width="50" height="50"/>
+                                    }
+                                    @case ("FLOCCULATION") {
+                                    <img src="flocculation.svg" width="50" height="50"/>
+                                    }
+                                    @case ("SEDIMENTATION") {
+                                    <img src="sedimentation.svg" width="50" height="50"/>
+                                    }
+                                    @case ("FILTRATION") {
+                                    <img src="filtration.svg" width="50" height="50"/>
+                                    }
+                                    @case ("DISINFECTION") {
+                                    <img src="disinfection.svg" width="50" height="50"/>
+                                    }
+                                    @case ("PH-CORRECTION") {                                            
+                                    <img src="ph-ajustment.svg" width="50" height="50"/>
+                                    }
+                                    @case ("FLUORIDATION") {
+                                    <img src="fluoridation.svg" width="50" height="50"/>      
+                                    }
+                                 }
+                              </span>
+                              <div class="flex flex-col gap-1">
+                                 <h6 class="block font-sans text-base antialiased font-normal leading-relaxed tracking-normal text-blue-gray-700">
+                                    Step [ {{ status.step }} ]
+                                 </h6>
+                                 <p class="block font-sans text-sm antialiased font-light leading-normal text-gray-700">
+                                    Percentage of dirt [ {{ status.percent_dirt }} % ]
+                                 </p>
+                              </div>
+                           </div>
+                        </li>
+                     }
+                  </ul>
+               </div>
+         }
+      }
+      @if (activeTab() === 'list') {
+         @if (!isLoading()) {
+            <button (click) = "list()"  class="rounded-md border border-slate-300 py-2 px-4 text-center text-sm transition-all shadow-sm hover:shadow-lg text-slate-600 
+               hover:text-white hover:bg-slate-800 hover:border-slate-800 focus:text-white focus:bg-slate-800 focus:border-slate-800 active:border-slate-800 
+               active:text-white active:bg-slate-800 disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none" type="button">
+            Reload
+            </button>
+            @if (waters.length > 0) {
+               <app-accordion [waters]="waters"></app-accordion>
+            }
+         }
+      }
+   </div>
+</div>
+</div>

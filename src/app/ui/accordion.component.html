@@ -1,0 +1,71 @@
+<div class="border border-slate-200 rounded-md divide-y divide-slate-200 mt-[2%] ml-[2%]">
+  @for (water of waters; let i = $index; track water.id) {
+        <div class="border-b border-slate-200">
+            <button (click)="toggle(i)" class="w-full flex justify-between items-center py-5 px-3">                   
+                <div class="flex justify-between items-center w-full px-4 py-2">
+                    <p class="font-normal text-slate-500 lg:text-lg text-base">
+                        {{ water.id }}
+                    </p>
+
+                    <p class="font-normal text-slate-500 lg:text-lg text-base text-right">
+                        {{ water.finished ? 'finished' : 'in-progress' }}
+                    </p>
+                </div>
+
+                <span class="transition-transform duration-300" [class.rotate-180]="openIndex === i">
+                <!-- Chevron -->
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" class="w-4 h-4">
+                    <path fill-rule="evenodd" d="M11.78 9.78a.75.75 0 0 1-1.06 0L8 7.06 5.28 9.78a.75.75 0 0 1-1.06-1.06l3.25-3.25a.75.75 0 0 1 1.06 0l3.25 3.25a.75.75 0 0 1 0 1.06Z"
+                    clip-rule="evenodd"/>
+                </svg>
+                </span>
+            </button>
+
+            <div class="transition-all duration-300 overflow-hidden ease-in-out px-3 overflow-y-auto" [style.maxHeight]="openIndex === i ? '500px' : '0px'">       
+                <div class="w-[25rem]">
+                    <ul class="flex flex-col w-full">
+                        @for (status of water.status; track $index) {
+                            <li class="relative flex flex-col gap-2 h-28">
+                                <div class="relative flex items-center gap-4 py-3 pl-4 pr-8 bg-white  shadow-lg rounded-xl border-blue-gray-50 shadow-blue-gray-900/5">
+                                    <span class="relative z-[2] w-max flex-shrink-0 overflow-hidden rounded-full p-3 text-gray-900">                                   
+                                            @switch (status.step) {
+                                                @case ("COAGULATION") {
+                                                    <img src="coagulation.svg" width="50" height="50"/>
+                                                }
+                                                @case ("FLOCCULATION") {
+                                                    <img src="flocculation.svg" width="50" height="50"/>
+                                                }
+                                                @case ("SEDIMENTATION") {
+                                                    <img src="sedimentation.svg" width="50" height="50"/>
+                                                }
+                                                @case ("FILTRATION") {
+                                                    <img src="filtration.svg" width="50" height="50"/>
+                                                }
+                                                @case ("DISINFECTION") {
+                                                    <img src="disinfection.svg" width="50" height="50"/>
+                                                }
+                                                @case ("PH-CORRECTION") {                                            
+                                                    <img src="ph-ajustment.svg" width="50" height="50"/>
+                                                }
+                                                @case ("FLUORIDATION") {
+                                                    <img src="fluoridation.svg" width="50" height="50"/>      
+                                                }
+                                            }
+                                    </span>
+                                    <div class="flex flex-col gap-1">
+                                    <h6 class="block font-sans text-base antialiased font-normal leading-relaxed tracking-normal text-blue-gray-700">
+                                        Step [ {{ status.step }} ]
+                                    </h6>
+                                    <p class="block font-sans text-sm antialiased font-light leading-normal text-blue-gray-700">
+                                       Percentage of dirt [ {{ status.percent_dirt }} % ]
+                                    </p>
+                                    </div>
+                                </div>
+                            </li>
+                        }
+                    </ul>
+                </div>
+            </div>
+        </div>
+   }
+</div>

@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="55px" height="50px" viewBox="0 0 54 50" version="1.1">
+<defs>
+<filter id="alpha" filterUnits="objectBoundingBox" x="0%" y="0%" width="100%" height="100%">
+  <feColorMatrix type="matrix" in="SourceGraphic" values="0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 1 0"/>
+</filter>
+<mask id="mask0">
+  <g filter="url(#alpha)">
+<rect x="0" y="0" width="4" height="4" style="fill:rgb(0%,0%,0%);fill-opacity:0.301961;stroke:none;"/>
+  </g>
+</mask>
+<clipPath id="clip2">
+  <rect x="0" y="0" width="54" height="50"/>
+</clipPath>
+<g id="surface6" clip-path="url(#clip2)">
+<path style="fill:none;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke:rgb(95.686275%,75.294119%,72.156864%);stroke-opacity:1;stroke-miterlimit:4;" d="M 0 0 L 0 10 " transform="matrix(0.4,0,0,0.4,0,0)"/>
+</g>
+<clipPath id="clip1">
+  <rect x="0" y="0" width="4" height="4"/>
+</clipPath>
+<g id="surface8" clip-path="url(#clip1)">
+<use xlink:href="#surface6" mask="url(#mask0)"/>
+</g>
+<pattern id="pattern0" patternUnits="userSpaceOnUse" width="4" height="4" patternTransform="matrix(0.795495,0.80353,-0.795495,0.80353,-186.75,0)">
+<use xlink:href="#surface8"/>
+</pattern>
+<mask id="mask1">
+  <g filter="url(#alpha)">
+<rect x="0" y="0" width="54" height="50" style="fill:rgb(0%,0%,0%);fill-opacity:0.8;stroke:none;"/>
+  </g>
+</mask>
+<clipPath id="clip3">
+  <rect x="0" y="0" width="54" height="50"/>
+</clipPath>
+<g id="surface11" clip-path="url(#clip3)">
+<path style=" stroke:none;fill-rule:nonzero;fill:rgb(100%,100%,100%);fill-opacity:1;" d="M 24.75 11.363281 L 25.648438 15.910156 L 30.148438 14.546875 L 27 18.183594 L 31.5 20.453125 L 27 20.453125 L 28.351562 25 L 24.75 21.816406 L 21.148438 25 L 22.5 20.453125 L 18 20.453125 L 22.5 18.183594 L 19.351562 14.546875 L 23.851562 15.910156 Z M 24.75 11.363281 "/>
+</g>
+</defs>
+<g id="surface1">
+<path style=" stroke:none;fill-rule:nonzero;fill:url(#pattern0);" d="M 49.5 25 C 49.5 12.449219 39.425781 2.273438 27 2.273438 C 14.574219 2.273438 4.5 12.449219 4.5 25 C 4.5 37.550781 14.574219 47.726562 27 47.726562 C 39.425781 47.726562 49.5 37.550781 49.5 25 Z M 49.5 25 "/>
+<path style=" stroke:none;fill-rule:nonzero;fill:rgb(100%,81.568629%,78.431374%);fill-opacity:1;" d="M 49.5 25 C 49.5 12.449219 39.425781 2.273438 27 2.273438 C 14.574219 2.273438 4.5 12.449219 4.5 25 C 4.5 37.550781 14.574219 47.726562 27 47.726562 C 39.425781 47.726562 49.5 37.550781 49.5 25 Z M 49.5 25 "/>
+<path style=" stroke:none;fill-rule:nonzero;fill:rgb(100%,100%,100%);fill-opacity:1;" d="M 33.75 22.726562 C 33.75 17.707031 29.71875 13.636719 24.75 13.636719 C 19.78125 13.636719 15.75 17.707031 15.75 22.726562 C 15.75 27.746094 19.78125 31.816406 24.75 31.816406 C 29.71875 31.816406 33.75 27.746094 33.75 22.726562 Z M 33.75 22.726562 "/>
+<use xlink:href="#surface11" mask="url(#mask1)"/>
+<path style="fill-rule:nonzero;fill:rgb(100%,100%,100%);fill-opacity:1;stroke-width:3;stroke-linecap:round;stroke-linejoin:miter;stroke:rgb(100%,100%,100%);stroke-opacity:1;stroke-miterlimit:4;" d="M 445 35.002344 L 450 40.003906 " transform="matrix(0.45,0,0,0.454545,-186.75,0)"/>
+<path style="fill-rule:nonzero;fill:rgb(100%,100%,100%);fill-opacity:1;stroke-width:3;stroke-linecap:round;stroke-linejoin:miter;stroke:rgb(100%,100%,100%);stroke-opacity:1;stroke-miterlimit:4;" d="M 490 35.002344 L 495 40.003906 " transform="matrix(0.45,0,0,0.454545,-186.75,0)"/>
+<path style="fill-rule:nonzero;fill:rgb(100%,100%,100%);fill-opacity:1;stroke-width:3;stroke-linecap:round;stroke-linejoin:miter;stroke:rgb(100%,100%,100%);stroke-opacity:1;stroke-miterlimit:4;" d="M 445 65.003125 L 450 60.001563 " transform="matrix(0.45,0,0,0.454545,-186.75,0)"/>
+<path style="fill-rule:nonzero;fill:rgb(100%,100%,100%);fill-opacity:1;stroke-width:3;stroke-linecap:round;stroke-linejoin:miter;stroke:rgb(100%,100%,100%);stroke-opacity:1;stroke-miterlimit:4;" d="M 490 65.003125 L 495 60.001563 " transform="matrix(0.45,0,0,0.454545,-186.75,0)"/>
+</g>
+</svg>

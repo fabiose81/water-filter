@@ -1,0 +1,11 @@
+@use "tailwindcss";
+
+.main {
+   text-align: center;
+   padding: 1rem;
+   margin: 1rem auto;
+   width: 90rem;
+   height: 55rem;
+   max-width: 99%;
+   overflow-y: auto;
+ }

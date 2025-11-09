@@ -15,8 +15,10 @@
     "target": "ES2022",
     "module": "preserve"
   },
+  "moduleResolution": "node",
   "angularCompilerOptions": {
     "enableI18nLegacyMessageIdFormat": false,
+    "enableExperimentalFeatures": true,
     "strictInjectionParameters": true,
     "strictInputAccessModifiers": true,
     "typeCheckHostBindings": true,
