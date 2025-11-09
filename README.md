@@ -8,10 +8,10 @@
 
 ### AWS Step Functions Workflow
 
-![alt text](https://github.com/fabiose81/water-filter/blob/master/step_functions_workflow_01.png?raw=true)
-![alt text](https://github.com/fabiose81/water-filter/blob/master/step_functions_workflow_02.png?raw=true)
-![alt text](https://github.com/fabiose81/water-filter/blob/master/step_functions_workflow_03.png?raw=true)
-![alt text](https://github.com/fabiose81/water-filter/blob/master/step_functions_workflow_04.png?raw=true)
+![alt text](https://github.com/fabiose81/water-filter/blob/master/step_functions_workflow_01.jpg?raw=true)
+![alt text](https://github.com/fabiose81/water-filter/blob/master/step_functions_workflow_02.jpg?raw=true)
+![alt text](https://github.com/fabiose81/water-filter/blob/master/step_functions_workflow_03.jpg?raw=true)
+![alt text](https://github.com/fabiose81/water-filter/blob/master/step_functions_workflow_04.jpg?raw=true)
 
     {
         "Comment": "Check Lambda result using JSONPath",
