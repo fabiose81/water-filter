@@ -3,6 +3,8 @@
   💻 : Angular(JavaScript)
   ☁️ : AWS(API Gatway / Step Functions / Lambda / DynamoDB)
 
+  https://github.com/user-attachments/assets/9ffd3f1e-5085-4da7-9068-e8862dee4b3e
+
   ![alt text](https://github.com/fabiose81/water-filter/blob/master/water-filter.jpg?raw=true)
 
 
