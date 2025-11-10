@@ -1,4 +1,4 @@
-# Process of water filtering
+# Water filtering process
 
   💻 : Angular(JavaScript)
   ☁️ : AWS(API Gatway / Step Functions / Lambda / DynamoDB)
